@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DoctorConsultApplication<Doctor-Consult>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.devmare.doctorConsult.DoctorConsultApplication",
+            "projectName": "Doctor-Consult",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

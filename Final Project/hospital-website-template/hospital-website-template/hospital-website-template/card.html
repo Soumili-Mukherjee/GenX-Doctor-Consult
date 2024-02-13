@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+        
+        body{
+    background: #edf1f5;
+    margin-top:20px;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    border-radius: 0;
+}
+.card {
+    margin-bottom: 30px;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.57rem;
+}
+
+ .note-has-grid .nav-link {
+     padding: .5rem
+ }
+
+ .note-has-grid .single-note-item .card {
+     border-radius: 10px
+ }
+
+ .note-has-grid .single-note-item .favourite-note {
+     cursor: pointer
+ }
+
+ .note-has-grid .single-note-item .side-stick {
+     position: absolute;
+     width: 3px;
+     height: 35px;
+     left: 0;
+     background-color: rgba(82, 95, 127, .5)
+ }
+
+ .note-has-grid .single-note-item .category-dropdown.dropdown-toggle:after {
+     display: none
+ }
+
+ .note-has-grid .single-note-item .category [class*=category-] {
+     height: 15px;
+     width: 15px;
+     display: none
+ }
+
+ .note-has-grid .single-note-item .category [class*=category-]::after {
+     content: "\f0d7";
+     font: normal normal normal 14px/1 FontAwesome;
+     font-size: 12px;
+     color: #fff;
+     position: absolute
+ }
+
+ .note-has-grid .single-note-item .category .category-business {
+     background-color: rgba(44, 208, 126, .5);
+     border: 2px solid #2cd07e
+ }
+
+ .note-has-grid .single-note-item .category .category-social {
+     background-color: rgba(44, 171, 227, .5);
+     border: 2px solid #2cabe3
+ }
+
+ .note-has-grid .single-note-item .category .category-important {
+     background-color: rgba(255, 80, 80, .5);
+     border: 2px solid #ff5050
+ }
+
+ .note-has-grid .single-note-item.all-category .point {
+     color: rgba(82, 95, 127, .5)
+ }
+
+ .note-has-grid .single-note-item.note-business .point {
+     color: rgba(44, 208, 126, .5)
+ }
+
+ .note-has-grid .single-note-item.note-business .side-stick {
+     background-color: rgba(44, 208, 126, .5)
+ }
+
+ .note-has-grid .single-note-item.note-business .category .category-business {
+     display: inline-block
+ }
+
+ .note-has-grid .single-note-item.note-favourite .favourite-note {
+     color: #ffc107
+ }
+
+ .note-has-grid .single-note-item.note-social .point {
+     color: rgba(44, 171, 227, .5)
+ }
+
+ .note-has-grid .single-note-item.note-social .side-stick {
+     background-color: rgba(44, 171, 227, .5)
+ }
+
+ .note-has-grid .single-note-item.note-social .category .category-social {
+     display: inline-block
+ }
+
+ .note-has-grid .single-note-item.note-important .point {
+     color: rgba(255, 80, 80, .5)
+ }
+
+ .note-has-grid .single-note-item.note-important .side-stick {
+     background-color: rgba(255, 80, 80, .5)
+ }
+
+ .note-has-grid .single-note-item.note-important .category .category-important {
+     display: inline-block
+ }
+
+ .note-has-grid .single-note-item.all-category .more-options,
+ .note-has-grid .single-note-item.all-category.note-favourite .more-options {
+     display: block
+ }
+
+ .note-has-grid .single-note-item.all-category.note-business .more-options,
+ .note-has-grid .single-note-item.all-category.note-favourite.note-business .more-options,
+ .note-has-grid .single-note-item.all-category.note-favourite.note-important .more-options,
+ .note-has-grid .single-note-item.all-category.note-favourite.note-social .more-options,
+ .note-has-grid .single-note-item.all-category.note-important .more-options,
+ .note-has-grid .single-note-item.all-category.note-social .more-options {
+     display: none
+ }
+
+ @media (max-width:767.98px) {
+     .note-has-grid .single-note-item {
+         max-width: 100%
+     }
+ }
+
+ @media (max-width:991.98px) {
+     .note-has-grid .single-note-item {
+         max-width: 216px
+     }
+ }
+
+
+    </style>
+  </head>
+  <body>
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="page-content container note-has-grid">
+ 
+    <div class="tab-content bg-transparent">
+        <div id="note-full-container" class="note-has-grid row">
+            <div class="col-md-4 single-note-item all-category" style="">
+                <div class="card card-body">
+                    
+                    <span class="side-stick"></span>
+                    <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Dr. Shreetama Das<i class="point fa fa-circle ml-1 font-10"></i></h5>
+                    <p class="note-date font-12 text-muted">Psychiatrist</p>
+                    <p class="note-date font-12 text-muted">Abir Ghosh</p>
+                    <div class="note-content">
+                        <p class="note-inner-content text-muted" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">abirghosh@gmail.com<br>14 Feb 2024 7:00pm</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="mr-1"><i class="fa fa-star favourite-note"></i></span>
+                        <span class="mr-1"><i class="fa fa-trash remove-note"></i></span>
+                        <div class="ml-auto">
+                            <div class="category-selector btn-group">
+                                <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                                    <div class="category">
+                                        <div class="category-business"></div>
+                                        <div class="category-social"></div>
+                                        <div class="category-important"></div>
+                                        <span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right category-menu">
+                                    <a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business
+                                    </a>
+                                    <a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social
+                                    </a>
+                                    <a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 single-note-item all-category note-important" style="">
+                <div class="card card-body">
+                    <span class="side-stick"></span>
+                    <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Go for lunch">Dr. Shouvik Guha <i class="point fa fa-circle ml-1 font-10"></i></h5>
+                    <p class="note-date font-12 text-muted">Cardiologist</p>
+                    <p class="note-date font-12 text-muted">Shreya</p>
+                    <div class="note-content">
+                        <p class="note-inner-content text-muted" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">shreya@gmail.com<br>14 Feb 2024 1:00am</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="mr-1"><i class="fa fa-star favourite-note"></i></span>
+                        <span class="mr-1"><i class="fa fa-trash remove-note"></i></span>
+                        <div class="ml-auto">
+                            <div class="category-selector btn-group">
+                                <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                                    <div class="category">
+                                        <div class="category-business"></div>
+                                        <div class="category-social"></div>
+                                        <div class="category-important"></div>
+                                        <span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right category-menu">
+                                    <a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business
+                                    </a>
+                                    <a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social
+                                    </a>
+                                    <a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 single-note-item all-category note-social" style="">
+                <div class="card card-body">
+                    <span class="side-stick"></span>
+                    <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Meeting with Mr.Jojo">Dr. Soumili Mukherjee<i class="point fa fa-circle ml-1 font-10"></i></h5>
+                    <p class="note-date font-12 text-muted">Orthopedic</p>
+                    <p class="note-date font-12 text-muted">Ankush Paul</p>
+                    <div class="note-content">
+                        <p class="note-inner-content text-muted" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">ankush@gmail.com<br>14Feb 2024 2:00am</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="mr-1"><i class="fa fa-star favourite-note"></i></span>
+                        <span class="mr-1"><i class="fa fa-trash remove-note"></i></span>
+                        <div class="ml-auto">
+                            <div class="category-selector btn-group">
+                                <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                                    <div class="category">
+                                        <div class="category-business"></div>
+                                        <div class="category-social"></div>
+                                        <div class="category-important"></div>
+                                        <span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right category-menu">
+                                    <a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business
+                                    </a>
+                                    <a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social
+                                    </a>
+                                    <a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 single-note-item all-category note-business" style="">
+                <div class="card card-body">
+                    <span class="side-stick"></span>
+                    <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Give Review for design">Dr. Deepon Das<i class="point fa fa-circle ml-1 font-10"></i></h5>
+                    <p class="note-date font-12 text-muted">Gynocologist</p>
+                    <p class="note-date font-12 text-muted">Debangana Paul</p>
+                    <div class="note-content">
+                        <p class="note-inner-content text-muted" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">debangana@gmail.com<br>14Feb 2024 1:00am</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="mr-1"><i class="fa fa-star favourite-note"></i></span>
+                        <span class="mr-1"><i class="fa fa-trash remove-note"></i></span>
+                        <div class="ml-auto">
+                            <div class="category-selector btn-group">
+                                <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                                    <div class="category">
+                                        <div class="category-business"></div>
+                                        <div class="category-social"></div>
+                                        <div class="category-important"></div>
+                                        <span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right category-menu">
+                                    <a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business
+                                    </a>
+                                    <a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social
+                                    </a>
+                                    <a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 single-note-item all-category note-social" style="">
+                <div class="card card-body">
+                    <span class="side-stick"></span>
+                    <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Nightout with friends">Dr. Kironmoy Mondol<i class="point fa fa-circle ml-1 font-10"></i></h5>
+                    <p class="note-date font-12 text-muted">Eye Specialist</p>
+                    <p class="note-date font-12 text-muted">Annanya Dutta</p>
+                    <div class="note-content">
+                        <p class="note-inner-content text-muted" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">ananya@gmail.com <br> 14Feb 2024 3:00am</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="mr-1"><i class="fa fa-star favourite-note"></i></span>
+                        <span class="mr-1"><i class="fa fa-trash remove-note"></i></span>
+                        <div class="ml-auto">
+                            <div class="category-selector btn-group">
+                                <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                                    <div class="category">
+                                        <div class="category-business"></div>
+                                        <div class="category-social"></div>
+                                        <div class="category-important"></div>
+                                        <span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right category-menu">
+                                    <a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business
+                                    </a>
+                                    <a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social
+                                    </a>
+                                    <a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 single-note-item all-category note-important" style="">
+                <div class="card card-body">
+                    <span class="side-stick"></span>
+                    <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Launch new template">Dr. Kajal Kumari Singh <i class="point fa fa-circle ml-1 font-10"></i></h5>
+                    <p class="note-date font-12 text-muted">Cardiologist</p>
+                    <p class="note-date font-12 text-muted">Siddhant Kumar Mahato</p>
+                    <div class="note-content">
+                        <p class="note-inner-content text-muted" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">siddhant@gamil.com <br>14 Feb 2024 10:00am</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="mr-1"><i class="fa fa-star favourite-note"></i></span>
+                        <span class="mr-1"><i class="fa fa-trash remove-note"></i></span>
+                        <div class="ml-auto">
+                            <div class="category-selector btn-group">
+                                <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                                    <div class="category">
+                                        <div class="category-business"></div>
+                                        <div class="category-social"></div>
+                                        <div class="category-important"></div>
+                                        <span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right category-menu">
+                                    <a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business
+                                    </a>
+                                    <a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social
+                                    </a>
+                                    <a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 single-note-item all-category note-social" style="">
+                <div class="card card-body">
+                    <span class="side-stick"></span>
+                    <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Change a Design">Dr. Tanisha Moulick<i class="point fa fa-circle ml-1 font-10"></i></h5>
+                    <p class="note-date font-12 text-muted">Neurologist</p>
+                    <p class="note-date font-12 text-muted">Srinjoy Ghosh</p>
+                    <div class="note-content">
+                        <p class="note-inner-content text-muted" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">srinjoy@gmail.com<br>14Feb 2024 3:00am</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="mr-1"><i class="fa fa-star favourite-note"></i></span>
+                        <span class="mr-1"><i class="fa fa-trash remove-note"></i></span>
+                        <div class="ml-auto">
+                            <div class="category-selector btn-group">
+                                <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                                    <div class="category">
+                                        <div class="category-business"></div>
+                                        <div class="category-social"></div>
+                                        <div class="category-important"></div>
+                                        <span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right category-menu">
+                                    <a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business
+                                    </a>
+                                    <a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social
+                                    </a>
+                                    <a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 single-note-item all-category note-business" style="">
+                <div class="card card-body">
+                    <span class="side-stick"></span>
+                    <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Give review for foods">Dr. Tuhina Majumder<i class="point fa fa-circle ml-1 font-10"></i></h5>
+                    <p class="note-date font-12 text-muted">Dentist</p>
+                    <p class="note-date font-12 text-muted">Niladry</p>
+                    <div class="note-content">
+                        <p class="note-inner-content text-muted" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">niladri@gmail.com <br>14Feb 2024 2:00am</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="mr-1"><i class="fa fa-star favourite-note"></i></span>
+                        <span class="mr-1"><i class="fa fa-trash remove-note"></i></span>
+                        <div class="ml-auto">
+                            <div class="category-selector btn-group">
+                                <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                                    <div class="category">
+                                        <div class="category-business"></div>
+                                        <div class="category-social"></div>
+                                        <div class="category-important"></div>
+                                        <span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right category-menu">
+                                    <a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business
+                                    </a>
+                                    <a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social
+                                    </a>
+                                    <a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 single-note-item all-category note-important" style="">
+                <div class="card card-body">
+                    <span class="side-stick"></span>
+                    <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Give salary to employee">Dr. Owendrila Bhattacharya<i class="point fa fa-circle ml-1 font-10"></i></h5>
+                    <p class="note-date font-12 text-muted">Pediatrician</p>
+                    <p class="note-date font-12 text-muted">Sukanta Das</p>
+                    <div class="note-content">
+                        <p class="note-inner-content text-muted" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">sukanta@gmail.com <br>14Feb 2024 3:00am</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="mr-1"><i class="fa fa-star favourite-note"></i></span>
+                        <span class="mr-1"><i class="fa fa-trash remove-note"></i></span>
+                        <div class="ml-auto">
+                            <div class="category-selector btn-group">
+                                <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                                    <div class="category">
+                                        <div class="category-business"></div>
+                                        <div class="category-social"></div>
+                                        <div class="category-important"></div>
+                                        <span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right category-menu">
+                                    <a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business
+                                    </a>
+                                    <a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social
+                                    </a>
+                                    <a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger" href="javascript:void(0);">
+                                        <i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Important
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Add notes -->
+    <div class="modal fade" id="addnotesmodal" tabindex="-1" role="dialog" aria-labelledby="addnotesmodalTitle" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title text-white">Add Notes</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="notes-box">
+                        <div class="notes-content">
+                            <form action="javascript:void(0);" id="addnotesmodalTitle">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <div class="note-title">
+                                            <label>Note Title</label>
+                                            <input type="text" id="note-has-title" class="form-control" minlength="25" placeholder="Title" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="note-description">
+                                            <label>Note Description</label>
+                                            <textarea id="note-has-description" class="form-control" minlength="60" placeholder="Description" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-n-save" class="float-left btn btn-success" style="display: none;">Save</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Discard</button>
+                    <button id="btn-n-add" class="btn btn-info" disabled="disabled">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Doctor Registration</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      /* Your CSS styles */
+    </style>
+  </head>
+  <body>
+    <section class="login">
+      <div class="container">
+        <div class="row">
+          <h2 class="text-center">Doctor Registration</h2>
+        </div>
+        <main>
+          <article>
+            <div class="form-container">
+              <h1 class="text-center">Sign Up</h1>
+              <form id="registrationForm">
+                <div class="row">
+                  <div class="left col-md-6 col-sm-12 col-xs-12">
+                    <input
+                      type="text"
+                      class="form-control input-lg"
+                      id="name"
+                      placeholder="Name"
+                    />
+                    <input
+                      type="tel"
+                      class="form-control input-lg"
+                      id="phone"
+                      placeholder="Mobile"
+                    />
+                    <input
+                      type="email"
+                      class="form-control input-lg"
+                      id="email"
+                      placeholder="Email"
+                    />
+                    <input
+                      type="text"
+                      class="form-control input-lg"
+                      id="location"
+                      placeholder="City"
+                    />
+                    <input
+                      type="text"
+                      class="form-control input-lg"
+                      id="experience"
+                      placeholder="Experience"
+                    />
+                  </div>
+                  <div class="right col-md-6 col-sm-12 col-xs-12">
+                    <input
+                      type="text"
+                      class="form-control input-lg"
+                      id="specialization"
+                      placeholder="Specialization"
+                    />
+                    <input
+                      type="password"
+                      class="form-control input-lg"
+                      id="password"
+                      placeholder="Password"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6 text-center">
+                    <input
+                      type="submit"
+                      class="btn btn-primary btn-lg btn-block btn_form col-sm-12"
+                      value="Sign Up"
+                    />
+                  </div>
+                  <div class="col-md-3"></div>
+                </div>
+              </form>
+            </div>
+          </article>
+        </main>
+      </div>
+    </section>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Event listener for form submission
+      $(document).ready(function () {
+        $("#registrationForm").submit(function (event) {
+          event.preventDefault();
+          registration(); // Call registration function
+        });
+      });
+
+      function registration() {
+        const name = $("#name").val();
+        const email = $("#email").val();
+        const password = $("#password").val();
+        const phone = $("#phone").val();
+        const specialization = $("#specialization").val();
+        const experience = $("#experience").val();
+        const location = $("#location").val();
+
+        $.ajax({
+          url: "http://localhost:8081/api/v1/doctor/register",
+          method: "post",
+          contentType: "application/json",
+          data: JSON.stringify({
+            name: name,
+            email: email,
+            password: password,
+            phone: phone,
+            specialization: specialization,
+            experience: experience,
+            location: location,
+          }),
+          success: function (response) {
+            alert("Registration Successful");
+          },
+          error: function (xhr, status, error) {
+            console.error("Registration error:", error);
+            alert("Registration error. Please try again.");
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
